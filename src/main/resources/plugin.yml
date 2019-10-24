@@ -1,6 +1,6 @@
 name: Classes
 main: com.biteforcemc.classes.Main
-version: 1.0
+version: v0.1
 author: Zack
 description: view and set classes.
 softdepend: [PlaceholderAPI]

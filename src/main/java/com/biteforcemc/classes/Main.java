@@ -1,10 +1,10 @@
 package com.biteforcemc.classes;
 
 
-import com.biteforcemc.commands.classesCommand;
-import com.biteforcemc.handlers.classHandler;
-import com.biteforcemc.handlers.placeHolderAPI;
-import com.biteforcemc.listeners.classesListener;
+import com.biteforcemc.classes.commands.classesCommand;
+import com.biteforcemc.classes.handlers.classHandler;
+import com.biteforcemc.classes.handlers.placeHolderAPI;
+import com.biteforcemc.classes.listeners.classesListener;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -29,7 +29,7 @@ public class Main extends JavaPlugin {
     }
 
     public classHandler getClassHandler() {
-        return classHandler;
+        return this.classHandler;
     }
 
     public void onEnable() {
@@ -40,6 +40,7 @@ public class Main extends JavaPlugin {
         config.options().copyDefaults(true);
         createConfig();
         saveDefaultConfig();
+        savePlayerFile();
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new placeHolderAPI().register();
@@ -89,11 +90,11 @@ public class Main extends JavaPlugin {
     }
 
     public File getPlayersFile() {
-        return players;
+        return this.players;
     }
 
     public YamlConfiguration getPlayers() {
-        return player;
+        return this.player;
     }
 
     public void savePlayerFile() {
